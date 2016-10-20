@@ -36,7 +36,7 @@
                 <li><a href="#p4">Quy trình</a></li>
                 <li><a href="#p5">Khuyến mãi</a></li>
                 <li><a href="#p6">Ưu đãi</a></li>
-                <li><a href="#ss-form" rel="modal:open" class="dk btnda1km ">Đăng ký</a></li>
+                <li><a href="#ss-form" rel="modal:open" class="dk btnda1km " id="trigger_click">Đăng ký</a></li>
             </ul>
         </div>
         <div id="fullpage" class="main">
@@ -362,30 +362,31 @@
             });
         </script>
 
-        <!-- Add fancyBox -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='source/jquery.fancybox.css')}}" type="text/css" media="screen" />
-        <script type="text/javascript" src="{{ url_for('static', filename='source/jquery.fancybox.pack.js?v=2.1.5')}}"></script>
+        <!--&lt;!&ndash; Add fancyBox &ndash;&gt;-->
+        <!--<link rel="stylesheet" href="{{ url_for('static', filename='source/jquery.fancybox.css')}}" type="text/css" media="screen" />-->
+        <!--<script type="text/javascript" src="{{ url_for('static', filename='source/jquery.fancybox.pack.js?v=2.1.5')}}"></script>-->
 
-        <!-- Optionally add helpers - button, thumbnail and/or media -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='source/helpers/jquery.fancybox-buttons.css?v=1.0.5')}}" type="text/css" media="screen" />
-        <script type="text/javascript" src="{{ url_for('static', filename='source/helpers/jquery.fancybox-buttons.js?v=1.0.5')}}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='source/helpers/jquery.fancybox-media.js?v=1.0.6')}}"></script>
+        <!--&lt;!&ndash; Optionally add helpers - button, thumbnail and/or media &ndash;&gt;-->
+        <!--<link rel="stylesheet" href="{{ url_for('static', filename='source/helpers/jquery.fancybox-buttons.css?v=1.0.5')}}" type="text/css" media="screen" />-->
+        <!--<script type="text/javascript" src="{{ url_for('static', filename='source/helpers/jquery.fancybox-buttons.js?v=1.0.5')}}"></script>-->
+        <!--<script type="text/javascript" src="{{ url_for('static', filename='source/helpers/jquery.fancybox-media.js?v=1.0.6')}}"></script>-->
 
-        <link rel="stylesheet" href="{{ url_for('static', filename='source/helpers/jquery.fancybox-thumbs.css?v=1.0.7')}}" type="text/css" media="screen" />
-        <script type="text/javascript" src="{{ url_for('static', filename='source/helpers/jquery.fancybox-thumbs.js?v=1.0.7')}}"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('.fancybox-media').fancybox({
-                    openEffect: 'none',
-                    closeEffect: 'none',
-                    helpers: {
-                        media: {}
-                    }
-                });
-                $(".fancybox").fancybox();
-            });
+        <!--&lt;!&ndash;<link rel="stylesheet" href="{{ url_for('static', filename='source/helpers/jquery.fancybox-thumbs.css?v=1.0.7')}}" type="text/css" media="screen" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<script type="text/javascript" src="{{ url_for('static', filename='source/helpers/jquery.fancybox-thumbs.js?v=1.0.7')}}"></script>&ndash;&gt;-->
 
-        </script>
+        <!--<script type="text/javascript">-->
+            <!--$(document).ready(function () {-->
+                <!--$('.fancybox-media').fancybox({-->
+                    <!--openEffect: 'none',-->
+                    <!--closeEffect: 'none',-->
+                    <!--helpers: {-->
+                        <!--media: {}-->
+                    <!--}-->
+                <!--});-->
+                <!--$(".fancybox").fancybox();-->
+            <!--});-->
+
+        <!--</script>-->
 
         <link href="{{ url_for('static', filename='lib/jquery-modal-master/jquery.modal.min.css')}}" rel="stylesheet" type="text/css"/>
         <script src="{{ url_for('static', filename='lib/jquery-modal-master/jquery.modal.min.js')}}" type="text/javascript"></script>
@@ -468,8 +469,7 @@
             </ol>
             <h4 class="ld2-notice"></h4>
         </form>
-    </body>
-</html>
+
 
 
     <script src="//cdn.accesstrade.vn/js/tracking.js" ></script>
@@ -505,3 +505,21 @@
 
     </script>
 
+  <script>
+        $(document).ready(function(){
+                $check_error = 0;
+                {% for field in form if field.widget.input_type != 'hidden' %}
+                    {% if field.errors %}
+                        if($check_error==0){
+                            jQuery('#trigger_click').trigger('click');
+                        }
+                       $check_error = $check_error + 1;
+                    {%endif%}
+                {%endfor%}
+
+            });
+
+
+    </script>
+    </body>
+</html>
