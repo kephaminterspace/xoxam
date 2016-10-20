@@ -30,7 +30,7 @@ def index():
         if form.validate_on_submit():
             data = {
                 "properties": [
-                    {"property":"identifier", "value":str(uuid.uuid4())},
+                    {"property":"identifier", "value":'xoaxam_'+str(uuid.uuid4())},
                     {"property":"firstname", "value":form.name.data},
                     {"property":"lastname", "value":""},
                     {"property":"email", "value":form.email.data},
