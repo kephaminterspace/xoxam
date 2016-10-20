@@ -1,382 +1,476 @@
-<!DOCTYPE html>
-<!--[if IE 7 ]><body class="ie ie7"><![endif]-->
-<!--[if IE 8 ]><body class="ie ie8"><![endif]-->
-<!--[if IE 9 ]><body class="ie ie9"><![endif]-->
-<html class='no-js' lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
-    <title>ANZ</title>
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=vietnamese" rel="stylesheet">
-    <link type="image/x-icon" href="{{ url_for('static', filename='images/fav.png')}}" rel="shortcut icon">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css')}}">
-    <style>
-        .field_error {
-            margin-left: 5px;
-            color: #dd4b39;
-            font-size: 10px;
-        }
-    </style>
-</head>
 
-<body>
-    <!--===========================-->
-    <!--==========Header===========-->
-    <div id="preloader">
-        <div id="status">
-            <div class="spinner">
-                <div class="bounce1"></div>
-                <div class="bounce2"></div>
-                <div class="bounce3"></div>
+
+ <!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Công nghệ TATTOOSTAR EFFECT  xóa sạch Xăm - Không đau - Không sẹo</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='media/images/favicon.png')}}" />
+        <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='media/jquery.fullPage.css')}}" />
+        <!--<link href="media/css/pc.css" rel="stylesheet" type="text/css"/>-->
+        <link href="{{ url_for('static', filename='custom-css/custom-css.css')}}" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+
+        <div class="back">
+            <div>
+                <a href="#p1" class="logo"><img src="{{ url_for('static', filename='')}}media/images/logo.png" alt=""></a>
+                <ul id="menu" class="menu">
+                    <li data-menuanchor="p2"><a href="#p2">Xóa Xăm</a></li>
+                    <li data-menuanchor="p3"><a href="#p3">Công nghệ TattooStar Effect</a></li>
+                    <li data-menuanchor="p4"><a href="#p4">Quy trình</a></li>
+                    <li data-menuanchor="p5"><a href="#p5">Khuyến mãi</a></li>
+                    <li data-menuanchor="p6"><a href="#p6">Bích Nguyệt</a></li>
+                </ul>
+                <a class="nav-bt"><i class="fa fa-bars"></i> Danh mục</a>
+                <a href="tel:0946845454" class="hotline"><img src="{{ url_for('static', filename='')}}media/images/hotline.png"/></a>
+
             </div>
+            <ul class="danhmuc">
+                <li><a href="#p1">Trang chủ</a></li>
+                <li><a href="#p2">Xóa Xăm</a></li>
+                <li><a href="#p3">Công nghệ Ruby Laser</a></li>
+                <li><a href="#p4">Quy trình</a></li>
+                <li><a href="#p5">Khuyến mãi</a></li>
+                <li><a href="#p6">Ưu đãi</a></li>
+                <li><a href="#ss-form" rel="modal:open" class="dk btnda1km ">Đăng ký</a></li>
+            </ul>
         </div>
-    </div>
-
-    <div class="main-holder">
-        <header class='main-wrapper header'>
-            <div class="container apex">
-                <div class="row">
-
-                    <nav class="navbar header-navbar" role="navigation">
-                        <div class="navbar-header">
-                            <div class="logo navbar-brand">
-                                <a href="https://www.anz.com/vietnam/" title="ANZ"></a>
-                            </div>
-                        </div>
-
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <div class="navbar-right">
-                            </div>
-                        </div>
-                    </nav>
-
-                </div>
-            </div>
-        </header>
-
-        <div class='main-wrapper content'>
-            <section class="relative software_slider">
-                <div class="forma-slider">
-                    <div class="container">
-                        <div class="row">
-                            <div id="form_slider" data-anchor="form_slider">
-
-                                <ul class="form-bxslider list-unstyled">
-
-                                    <li>
-                                        <div class="list-forstart fin_1">
-                                            <p class="text-1">HOÀN PHÍ THƯỜNG NIÊN & NHẬN VALI</p>
-                                            <p class="text-2">VỚI THẺ TÍN DỤNG ANZ</p>
-                                            <p class="text-3">*Chỉ áp dụng đến ngày 31/11/2016</p>
-                                        </div>
-                                        <div class="img-slider hidden-xs slide-man3 fin_2"></div>
-                                    </li>
-                                </ul>
-
-                            </div>
-
-                            <div class="clearfix visible-xs visible-md"></div>
-
-                            <div class="container relative fin_3" id='elem-portable'>
-                                <div class="reg-now">
-
-                                    <form class='reg-now-visible' id='formIndex' action="/" method="post" accept-charset="utf-8" role="form">
-                                        {{ form.hidden_tag() }}
-
-                                        <div class="clr"></div>
-                                        <p class="title-form mb-10">Thông tin cá nhân</p>
-                                        <div class='control-group'>
-                                            <input type="text" name="name" {%if form.data.name%} value="{{form.data.name|safe}}" {%endif%} placeholder='Họ và tên' required oninvalid="setCustomValidity('Tên không chính xác!')" oninput="setCustomValidity('')"/>
-                                        </div>
-
-                                        <div class='control-group'>
-                                            <input type="text" id="phone" name="phone" value={%if form.data.phone%} "{{form.data.phone|safe}}" {%else%} "" {%endif%} placeholder='Số điện thoại' required pattern="^[0-9]{10,12}$" oninvalid="setCustomValidity('Số điện thoại không chính xác')" oninput="setCustomValidity('')"/>
-                                        </div>
-
-                                        <div class='control-group'>
-                                            {% if form.email.errors %}
-                                                <span class="field_error" id="email_error"></span>
-                                            {%endif%}
-
-                                            <input type="text" name="email" value={%if form.data.email%} "{{form.data.email|safe}}" {%else%} "" {%endif%} class='insert-attr' placeholder='Địa chỉ email' required oninvalid="setCustomValidity('Email không chính xác!')" oninput="setCustomValidity('')"/>
-                                        </div>
-
-                                        <div class="relative">
-                                            {{slbox_address_support|safe}}
-                                        </div>
-                                        <div class="checkbox-custom checkbox-danger">
-                                            {%if form.toidongy.data%}
-                                            <input type="checkbox" id="toidongy" name="toidongy" required oninvalid="setCustomValidity('Bạn phải đồng ý với điều khoản này')" onchange="setCustomValidity('')" checked/>
-                                            {%else%}
-                                            <input type="checkbox" id="toidongy" name="toidongy" required oninvalid="setCustomValidity('Bạn phải đồng ý với điều khoản này')" onchange="setCustomValidity('')"/>
-                                            {%endif%}
-                                            <label for="toidongy" class="label-form-dk">Tôi đồng ý rằng ANZ có thể sử dụng thông tin trên đây để liên hệ với tôi nhằm giới thiệu những sản phẩm, dịch vụ và chương trình khuyến mãi của ANZ từ nay trở về sau</label>
-                                        </div>
-
-                                        <button type="submit" value="Register Now" class='btn submit sub-form' name="submit">Hoàn thành và Gửi</button>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
+        <div id="fullpage" class="main">
+            <section class="page1 section" id="section1">
+                <div class="page_container">
+                    <div id="dangky"></div>
+                    <!--<div class="headline"><img src="media/images/headline.png" alt=""><span><img src="media/images/headline-mb.png"></span></div>-->
+                    <!--<div class="subhl"><img src="media/images/sub-headline.png"></div>-->
+                    <div class="ldxx-slideMobile">
+                    <img src="{{ url_for('static', filename='media/images/slide649-768.png')}}" alt=""/>
                     </div>
-                    <!-- end container -->
+                    <div class="page1-reg">
+                        <a href="#ss-form" rel="modal:open" class="dk btnda1km "><img src="{{ url_for('static', filename='media/images/dangky.png')}}"></a>
+                    </div>
                 </div>
             </section>
 
-
-
-            <section class="container make-row">
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Example Tabs -->
-                        <div class="example-wrap">
-                            <div class="nav-tabs-horizontal">
-                                <ul class="nav nav-tabs" data-plugin="nav-tabs" role="tablist">
-                                    <li class="active the1" role="presentation">
-                                        <a data-toggle="tab" href="#exampleTabsOne" aria-controls="exampleTabsOne" role="tab" key="1">Thẻ Chuẩn</a>
-                                    </li>
-                                    <li role="presentation" class="the2">
-                                        <a data-toggle="tab" href="#exampleTabsTwo" aria-controls="exampleTabsTwo" role="tab" key="2">Thẻ Vàng</a>
-                                    </li>
-                                    <li role="presentation" class="the3">
-                                        <a data-toggle="tab" href="#exampleTabsThree" aria-controls="exampleTabsThree" role="tab" key="3">Thẻ Platinum</a>
-                                    </li>
-                                    <li role="presentation" class="the4">
-                                        <a data-toggle="tab" href="#exampleTabsFour" aria-controls="exampleTabsFour" role="tab" key="4">Thẻ Travel Platinum</a>
-                                    </li>
-                                </ul>
-                                <div class="clr"></div>
-                                <div class="tab-content padding-top-20">
-                                    <div class="tab-pane active" id="exampleTabsOne" role="tabpanel">
-                                        <div class="col-sm-12 col-md-6">
-                                            <div class="card-info">
-                                                <p class="title1">LỢI ÍCH VƯỢT TRỘI</p>
-                                                <p>
-                                                    - Hoàn tiền <strong>0.3%</strong> không giới hạn trên tổng chi tiêu
-                                                    <br>- Tận hưởng ưu đãi tại hơn <strong>2.200 ngàn đối tác</strong> của chương trình ANZ Spot trên toàn Châu Á Thái Bình Dương
-                                                    <br>- Giảm <strong>5%</strong> khi đặt phòng trả trước tại Agoda bằng Thẻ Tín Dụng ANZ Chuẩn và Vàng.
-
-                                                </p>
-                                                <p class="title1">ƯU ĐÃI ĐẶC BIỆT</p>
-                                                <p>
-                                                    - Hoàn phí thường niên năm đầu tiên
-                                                    <br>- Hoàn tiền <strong>500,000đ</strong> vào tài khoản
-                                                </p>
-                                               <p class="title1">ĐIỀU KIỆN ÁP DỤNG</p>
-                                                <p>
-                                                    - Từ 18 tuổi trở lên
-                                                    <br>- Thu nhập tối thiểu <strong>8 triệu</strong>
-                                                    <br>- Sinh sống tại Hà Nội, Tp.Hồ Chí Minh, Bình Dương.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <img src="{{ url_for('static', filename='images/cash-bank.png')}}">
-                                           <a href="#" data-scroll="form_slider" class="btn submit a-trig btn-re">Đăng Ký Ngay</a>
-                                        </div>
-                                        <div class="clr"></div>
-                                    </div>
-                                    <div class="tab-pane" id="exampleTabsTwo" role="tabpanel">
-                                       <div class="col-sm-12 col-md-6">
-                                            <div class="card-info">
-                                                <p class="title1">LỢI ÍCH VƯỢT TRỘI</p>
-                                                <p>
-                                                    - Hoàn tiền <strong>0.3%</strong> không giới hạn trên tổng chi tiêu
-                                                    <br>- Tận hưởng ưu đãi tại hơn <strong>2.200 ngàn đối tác</strong> của chương trình ANZ Spot trên toàn Châu Á Thái Bình Dương
-                                                    <br>- Giảm <strong>5%</strong> khi đặt phòng trả trước tại Agoda bằng Thẻ Tín Dụng ANZ Chuẩn và Vàng.
-                                                </p>
-                                                <p class="title1">ƯU ĐÃI ĐẶC BIỆT</p>
-                                                <p>
-                                                    - Tặng Vali Eddas 20” trị giá <strong>2.0 triệu đồng</strong>
-                                                </p>
-                                                <p class="title1">ĐIỀU KIỆN ÁP DỤNG</p>
-                                                 <p>
-                                                    - Từ 18 tuổi trở lên
-                                                    <br>- Thu nhập tối thiểu <strong>16 triệu</strong>
-                                                    <br>- Sinh sống tại Hà Nội, Tp.Hồ Chí Minh, Bình Dương.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <img src="{{ url_for('static', filename='images/cash-bank2.png')}}">
-                                           <a href="#" data-scroll="form_slider" class="btn submit a-trig btn-re">Đăng Ký Ngay</a>
-                                        </div>
-                                        <div class="clr"></div>
-                                    </div>
-                                    <div class="tab-pane" id="exampleTabsThree" role="tabpanel">
-                                       <div class="col-sm-12 col-md-6">
-                                            <div class="card-info">
-                                                <p class="title1">LỢI ÍCH VƯỢT TRỘI</p>
-                                                <p>
-                                                    - Hoàn tiền <strong>0,4%</strong> không giới hạn trên tổng chi tiêu và ưu đãi thêm <strong>5%</strong> hoàn tiền trên hóa đơn ẩm thực cuối tuần
-                                                    <br>- Bảo hiểm du lịch lên đến <strong>500.000 đô la Mỹ</strong>
-                                                    <br>- Đặc quyền ưu đãi miễn <strong>50%</strong> phí ra sân tại những Câu lạc bộ Golf uy tín tại Việt Nam
-                                                    <br>- Tận hưởng ưu đãi tại hơn <strong>2.200 ngàn đối tác</strong> của chương trình ANZ Spot trên toàn Châu Á Thái Bình Dương
-                                                    <br>- Giảm <strong>7%</strong> khi đặt phòng trả trước tại Agoda bằng Thẻ Tín Dụng ANZ Chuẩn và Vàng.
-                                                </p>
-                                                <p class="title1">ƯU ĐÃI ĐẶC BIỆT</p>
-                                                <p>
-                                                    - Tặng Vali Eddas 25” trị giá <strong>2.5 triệu đồng</strong>
-                                                    <br>- Hoàn tiền <strong>500,000đ</strong> vào tài khoản
-                                                </p>
-                                                <p class="title1">ĐIỀU KIỆN ÁP DỤNG</p>
-                                                <p>
-                                                    - Từ 18 tuổi trở lên
-                                                    <br>- Thu nhập tối thiểu <strong>20 triệu</strong>
-                                                    <br>- Sinh sống tại Hà Nội, Tp.Hồ Chí Minh, Bình Dương.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <img src="{{ url_for('static', filename='images/cash-bank3.png')}}">
-                                           <a href="#" data-scroll="form_slider" class="btn submit a-trig btn-re">Đăng Ký Ngay</a>
-                                        </div>
-                                        <div class="clr"></div>
-                                    </div>
-                                    <div class="tab-pane" id="exampleTabsFour" role="tabpanel">
-                                        <div class="col-sm-12 col-md-6">
-                                            <div class="card-info">
-                                                <p class="title1">LỢI ÍCH VƯỢT TRỘI</p>
-                                                <p>
-                                                    - Chương trình bay miễn phí cùng ANZ từ những chi tiêu tích lũy hàng ngày.
-                                                    <br>- Dịch vụ phòng chờ đẳng cấp tại hơn <strong>850 phòng</strong> chờ sân bay trên toàn thế giới
-                                                    <br>- Bảo hiểm du lịch lên đến <strong>500.000 đô la Mỹ</strong>
-                                                    <br>- Miễn 50% phí ra sân tại <strong>6 Câu lạc bộ Golf</strong> uy tín tại Việt Nam
-                                                    <br>- Tận hưởng ưu đãi tại hơn <strong>2.200 ngàn đối tác</strong> của chương trình ANZ Spot trên toàn Châu Á Thái Bình Dương
-                                                    <br>- Giảm <strong>7%</strong> khi đặt phòng trả trước tại Agoda bằng Thẻ Tín Dụng ANZ Chuẩn và Vàng.
-                                                    <br>- Hỗ trợ thông tin và chăm sóc khách hàng 24/7
-                                                </p>
-                                                <p class="title1">ƯU ĐÃI ĐẶC BIỆT</p>
-                                                <p>
-                                                    - Tặng Vali Eddas trị giá đến <strong>2.5 triệu đồng</strong>
-                                                    <br>- Tặng thêm ngay <strong>2,000 dặm ANZ</strong> để đổi vé máy bay miễn phí từ 75 hãng hàng không hoặc nhận đến 24 voucher Agoda.
-                                                </p>
-                                                <p class="title1">ĐIỀU KIỆN ÁP DỤNG</p>
-                                                <p>
-                                                    - Từ 18 tuổi trở lên
-                                                    <br>- Thu nhập tối thiểu <strong>20 triệu</strong>
-                                                    <br>- Sinh sống tại Hà Nội, Tp.Hồ Chí Minh, Bình Dương.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <img src="{{ url_for('static', filename='images/cash-bank4.png')}}">
-                                           <a href="#" data-scroll="form_slider" class="btn submit a-trig btn-re">Đăng Ký Ngay</a>
-                                        </div>
-                                        <div class="clr"></div>
-                                    </div>
-                                </div>
+            <section class="page2 section" id="section2">
+                <div class="page_container">
+                    <div class="tdesub">CƠ CHẾ XÓA XĂM TATTOOSTAR EFFECT KHÁC BIỆT NHƯ THẾ NÀO?</div>
+                    <div class="line"></div>
+                    <div class="tab coche">
+                        <div class="giaiphap">
+                            <figure>
+                                <img src="{{ url_for('static', filename='media/images/coche1.png')}}" alt="">
+                                <figcaption>Cường độ phát xung có độ tập trung cao, thời gian tác động siêu nhanh sẽ phá vỡ toàn bộ cấu trúc & đường nét hình xăm</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="{{ url_for('static', filename='media/images/coche2.png')}}" alt="">
+                                <figcaption>Tia Laser chỉ hấp thụ mực xăm, nên an toàn cho các vùng da khác</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="{{ url_for('static', filename='media/images/coche3.png')}}" alt="">
+                                <figcaption>Khả năng làm mát tự động sẽ không gây bỏng rát, ửng đỏ</figcaption>
+                            </figure>
+                            <div class="dkn">
+                                <a href="#ss-form" rel="modal:open" class="dk btnda1km "><img src="{{ url_for('static', filename='media/images/dangky.png')}}"></a>
                             </div>
                         </div>
-                        <!-- End Example Tabs -->
+                        <div>
+                            <iframe width="420" height="315" src="https://www.youtube.com/embed/zNtLpdJ5iHM" frameborder="0" allowfullscreen></iframe>
+                            <p style="text-align:center;font-weight:bold">Video chứng minh hiệu quả xóa xăm</p>
+                        </div>
                     </div>
                 </div>
-                <div class="clr"></div>
             </section>
-        </div>
 
-        <!--===========================-->
-        <!--=========Footer============-->
-        <footer class='main-wrapper footer'>
-            <div class="partners" id='partners'>
+            <section class="page3 section" id="section3" style="background-color: #eeecde;">
+                <div class="page_container">
+                    <div class="tdesub">CHUYÊN GIA NHẬN ĐỊNH VỀ TattooStar Effect HOA KỲ</div>
+                    <div class="line"></div>
+                    <div class="row util">
+                        <div><img src="{{ url_for('static', filename='media/images/nhandinh.png')}}"/></div>
+                        <div>
+                            <h3>HIỆU QUẢ</h3>
+                            <ul>
+                                <li>Xóa được cả những màu xăm khó xóa nhất (đỏ, đen, xanh lá cây, xanh nước biển)</li>
+
+                            </ul>
+                            <h3>AN TOÀN</h3>
+                            <ul>
+                                <li>Không  tê rát, đỏ ửng hay phồng rộp sau thực hiện</li>
+                                <li>Khi thuốc tê hết tác dụng, chỉ có cảm giác châm chích nhẹ như kiến bò</li>
+                            </ul>
+                            <h3>KHÔNG ĐỂ LẠI SẸO</h3>
+                            <ul>
+                                <li>Không làm tổn thương da, không để lại sẹo</li>
+                                <li>Áp dụng cho cả vùng da mỏng, có cơ địa yếu</li>
+                            </ul>
+                            <p><a href="#ss-form" rel="modal:open" class="dk btnda1km "><img src="{{ url_for('static', filename='media/images/dangky.png')}}"></a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="page4 section" id="section4">
+                <div id="pg4" style="position:relative;top:-25px"></div>
+                <div class="page_container">
+                    <div class="tdesub">QUY TRÌNH XÓA XĂM BẰNG CÔNG NGHỆ TattooStar Effect</div>
+                    <div class="line"></div>
+                    <img class="process_pic" src="{{ url_for('static', filename='media/images/quytrinh.png')}}"/>
+                    <div class="ketqua mb">
+                        <p>Bác sĩ tư vấn, xem kích thước hình xăm đưa ra liệu trình phù hợp</p>
+                        <p>Sát trùng, gây tê vùng da cần xóa xăm</p>
+                        <p>Tiến hành xóa xăm bằng công nghệ Ruby Laser</p>
+                        <p>Bôi kem tái tạo da</p>
+                    </div>
+                    <div class="row process_slogan">
+
+                        <div><a href="#ss-form" rel="modal:open" class="dk btnda1km "><img src="{{ url_for('static', filename='media/images/dangky.png')}}"></a></div>
+                    </div>
+
+
+                </div>
+            </section>
+            <section class="page5 section" id="section5">
+                <div id="pg5" style="position:relative;top:-25px"></div>
+                <div class="page_container">
+
+                    <div class="pricebox">
+                        <div class="price_ct">
+                            <div style="background-color: #f3d374;">
+                                <div class="price_tt">Chi phí và Ưu đãi</div>
+                            </div>
+                            <table class="price_tab">
+                                <tr>
+                                    <td>dịch vụ xóa xăm</td>
+                                    <td>Chi phí gốc (triệu đồng)</td>
+                                    <td>Chi phí ưu đãi (triệu đồng)</td>
+                                </tr>
+                                <tr>
+                                    <td>Xóa xăm mí mắt</td>
+                                    <td>3</td>
+                                    <td>1.5</td>
+                                </tr>
+                                <tr>
+                                    <td>Xóa xăm lông mày</td>
+                                    <td>4</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>Xóa xăm môi</td>
+                                    <td>4</td>
+                                    <td>2</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Hình xăm diện tích Dưới 2 cm2</td>
+                                    <td>3</td>
+                                    <td>1.5</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Hình xăm Từ 2cm2 đến dưới 4cm2</td>
+                                    <td>5</td>
+                                    <td>2.5</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Hình xăm Từ 4cm2 đến dưới 6cm2</td>
+                                    <td>7</td>
+                                    <td>3.5</td>
+                                </tr>
+                                <tr>
+                                    <td>Hình xăm Từ 6cm2 đến dưới 8cm2</td>
+                                    <td>10</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>Hình xăm Từ 8cm2 đến dưới 10cm2</td>
+                                    <td>12-13</td>
+                                    <td>6-6.5</td>
+                                </tr>
+                                <tr>
+                                    <td>Hình xăm Trên 10cm2</td>
+                                    <td>13-15</td>
+                                    <td>6.5-7.5</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <p><b><i>ĐẶC BIỆT:</i></b> Chương trình ưu đãi 50%</p>
+                        <p><b>(Áp dụng: 05/07 - 31/07/2016 tại tất cả cơ sở của Bích Nguyệt)</b></p>
+                        <p class="price_reg"><a href="#ss-form" rel="modal:open" class="dk btnda1km "><img src="{{ url_for('static', filename='media/images/dangky.png')}}"></a></p>
+                    </div>
+
+                </div>
+            </section>
+            <section class="page6 section" id="section6">
+                <div id="pg6" style="position:relative;top:-25px"></div>
+                <div class="page_container">
+                    <div class="tdesub">THẨM MỸ VIỆN Bích nguyệt – TRUNG TÂM XÓA HÌNH XĂM CÔNG NGHỆ CAO</div>
+                    <div class="line"></div>
+                    <div class="different2">
+                        <article>
+                            <div>
+                                <img src="{{ url_for('static', filename='media/images/bv1.png')}}" />
+                                <p>Ứng dụng công nghệ xóa xăm Hoa Kỳ</p>
+                            </div>
+                        </article>
+                        <article>
+                            <div>
+                                <img src="{{ url_for('static', filename='media/images/bv2.png')}}" />
+                                <p>Quy tụ đội ngũ bác sĩ giỏi Việt Nam và Quốc tế</p>
+                            </div>
+                        </article>
+                        <article>
+                            <div>
+                                <img src="{{ url_for('static', filename='media/images/bv3.png')}}" />
+                                <p>Quy trình an toàn, chuyên nghiệp, chuẩn Bộ Y tế</p>
+                            </div>
+                        </article>
+                        <article>
+                            <div>
+                                <img src="{{ url_for('static', filename='media/images/bv4.png')}}" />
+                                <p>Phòng khám chuyên gia, đầy đủ trang thiết bị</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <footer class="ldtn-footer-info-section ldtn-section page6 section">
                 <div class="container">
-                    <div class="row">
-                        <div class=" col-md-12">
-                            <div class="img1 fl">
-                                <a href="#">
-                                    <img src="{{ url_for('static', filename='images/img1.jpg')}}">
-                                </a>
-                            </div>
-                            <div class="img2 fl">
-                                <a href="#">
-                                    <img src="{{ url_for('static', filename='images/img2.jpg')}}">
-                                </a>
-                            </div>
-                            <div class="img2 fl">
-                                <a href="#">
-                                    <img src="{{ url_for('static', filename='images/img3.jpg')}}">
-                                </a>
-                            </div>
-
-
-                            <div class="img2 fl">
-                                <a href="#">
-                                    <img src="{{ url_for('static', filename='images/img4.jpg')}}">
-                                </a>
-                            </div>
-                            <div class="img2 fl">
-                                <a href="#">
-                                    <img src="{{ url_for('static', filename='images/img5.jpg')}}">
-                                </a>
-                            </div>
-                            <div class="img2 fl">
-                                <a href="#">
-                                    <img src="{{ url_for('static', filename='images/img6.jpg')}}">
-                                </a>
-                            </div>
-                            <div class="img2 fl">
-                                <a href="#">
-                                    <img src="{{ url_for('static', filename='images/img7.jpg')}}">
-                                </a>
-                            </div>
-
+                    <div class="col-md-4 col-sm-4 ldtn-footer-info">
+                        <div class="ldtn-footer-info-title">
+                            HỆ THỐNG THẨM MỸ VIỆN BÍCH NGUYỆT
                         </div>
-
+                        <ul class="ldtn-footer-info-list">
+                            <li>
+                                <b>Địa chỉ 1:</b> 7C Lê Đại Hành, Hai Bà Trưng, Hà Nội
+                            </li>
+                            <li>
+                                <b>Điện thoại:</b> <a href="tel:0436333399">0436.33.33.99</a> . Hotline:  <a href="tel:0946845454">094.684.54.54</a>
+                            </li>
+                            <li>
+                                <b>Địa chỉ 2:</b> 57 Nguyễn Công Hoan, Ba Đình, Hà Nội
+                            </li>
+                            <li>
+                                <b>Điện thoại:</b> <a href="tel:0437713333">043.771.3333</a> . Hotline:  <a href="tel:0936415454">093.641.54.54</a>
+                            </li>
+                            <li>
+                                <b>Website:</b> <a href="http://bichnguyetspa.vn/">bichnguyetspa.vn</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="clr"></div>
+                    <div class="col-md-4 col-sm-4 ldtn-footer-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d391.4989603578733!2d105.85003037369904!3d21.00919441822982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf0a2aa7608147280!2zVGjhuqltIG3hu7kgdmnhu4duIELDrWNoIE5ndXnhu4d0!5e0!3m2!1sen!2s!4v1467947004123" width="600" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                    </div>
+                    <div class="col-md-4 col-sm-4 ldtn-footer-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3131.616714484213!2d105.81232973360191!3d21.02704838966942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab6e8b1ed16f%3A0x7f1ebe83ec1dc258!2zNTcgTmd1eeG7hW4gQ8O0bmcgSG9hbiwgR2nhuqNuZyBWw7UsIEJhIMSQw6xuaCwgSMOgIE7hu5lpLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1467946521448" width="600" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-            </div>
-            <div class="container f-dk">
-                <p class="text-center footer-text-1">
-                    CÓ HÀNG NGÀN <span class="text-red-b">ƯU ĐÃI HẤP DẪN</span> ĐANG CHỜ BẠN
-                </p>
-                <p class="text-center footer-text-2">
-                    Thẻ tín dụng ANZ nằm trong tầm tay bạn.
-                    <br> Hãy điền thông tin của bạn và chúng tôi sẽ gọi ngay cho bạn trong 1 giờ để hỗ trợ bạn đăng ký.
-                </p>
-                <a href="#" data-scroll="form_slider" class='btn submit a-trig reg-footer'>Đăng Ký Ngay</a>
-            </div>
-            <div class="container bottom">
-                <div class="fl copyright">Copyright (c) 2016 accesstrade</div>
-                <nav>
-                    <ul style="margin:0px;">
-                        <li><a href="https://www.anz.com/vietnam/vn/auxiliary/contact-us/">LIÊN HỆ</a></li>
-                        <li><a href="https://www.anz.com/vietnam/">VỀ ANZ</a></li>
-                    </ul>
-
-                </nav>
-            </div>
-        </footer>
-
-
-        <!-- Top -->
-        <div id="back-top-wrapper" class="visible-lg">
-            <p id="back-top" class='bounceOut'>
-                <a href="#top">
-                    <span></span>
-                </a>
-            </p>
+            </footer>
         </div>
 
-    </div>
-    <div class="mask"></div>
-    <script src="{{ url_for('static', filename='js/jquery-1.10.1.min.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/modernizr.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.bxslider.min.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.customSelect.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.validate.min.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.colorbox-min.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/custom.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/loader.js')}}"></script>
+        <div class="ftadbox">
+            <div class="ftad effect">
+                <div class="call"><a class="clearfix" target="_blank" href="tel:0946845454"><i class="fa fa-phone"></i>094.684.54.54</a></div>
+                <div class="reg"><a href="#ss-form" rel="modal:open" class="clearfix btnda1km"><i class="fa fa-pencil-square-o"></i>Đăng ký</a></div>
+            </div>
+        </div>
+        <script>
+            var cb = function () {
+                var l = document.createElement('link');
+                l.rel = 'stylesheet';
+                l.href = '{{ url_for('static', filename='lib/font-awesome/css/font-awesome.min.css')}}';
+                var h = document.getElementsByTagName('head')[0];
+                h.parentNode.insertBefore(l, h);
+            };
+            var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+                    webkitRequestAnimationFrame || msRequestAnimationFrame;
+            if (raf)
+                raf(cb);
+            else
+                window.addEventListener('load', cb);
+        </script>
+
+        <script src="{{ url_for('static', filename='media/jquery.min.js')}}"></script>
+        <script src="{{ url_for('static', filename='media/jquery-ui.min.js')}}"></script>
+        <script type=text/javascript" src="{{ url_for('static', filename='media/jquery.slimscroll.min.js')}}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='media/jquery.fullPage.js')}}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='media/js.js')}}"></script>
+        <script src="{{ url_for('static', filename='custom-js/custom.js')}}" type="text/javascript"></script>
+        <!--<script src="media/bjqs-1.3.js"></script>-->
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#fullpage').fullpage({
+                    sectionsColor: ['#fff', '#fff', '#eeecde', '#fff', '#eeecde', '#fff', '#fff'],
+                    anchors: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7'],
+                    menu: '#menu',
+                    continuousVertical: false,
+                    navigation: true,
+                    navigationPosition: 'right',
+                    navigationTooltips: ['Trang chủ', 'Công nghệ', 'Quy trình', ' Khách hàng', 'Khuyến mãi', 'Hợp tác'],
+                    responsive: 680
+                });
+                $(".nav-bt").click(function () {
+                    $(".danhmuc").toggle();
+                });
+                $(".danhmuc a").click(function () {
+                    $(".danhmuc").hide();
+                });
+                $(".close").click(function () {
+                    $(".alopop").hide();
+                    $(".ftad").show();
+                });
+                $(".dangky-top ").click(function () {
+                    $(".alopop").show();
+                });
+                $(".dky-bt2").click(function () {
+                    $(".alopop").show();
+                });
+                $(".dky-bt").click(function () {
+                    $(".alopop").show();
+                });
+
+                $(".page1-saleoff a").click(function () {
+                    $(".alopop").show();
+                });
+                $(".quyenloi a").click(function () {
+                    $(".alopop").show();
+                });
+                $(".tech-clip a").click(function () {
+                    $(".alopop").show();
+                });
+                $(".fct input").click(function () {
+                    $(".ftad").hide();
+                });
+                $(".submit_s").click(function () {
+                    $(".ftad").show();
+                });
+
+                $(".vd_qtmb a").click(function () {
+                    $(".alopop").show();
+                });
+                $(".trailer").click(function () {
+                    $(".alopop").show();
+                });
+                $(".cn_vd,.dk,.congnghe a,.play2 a,.udai2 a").click(function () {
+                    $(".alopop").show();
+                });
+
+            });
+        </script>
+
+        <!-- Add fancyBox -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='source/jquery.fancybox.css')}}" type="text/css" media="screen" />
+        <script type="text/javascript" src="{{ url_for('static', filename='source/jquery.fancybox.pack.js?v=2.1.5')}}"></script>
+
+        <!-- Optionally add helpers - button, thumbnail and/or media -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='source/helpers/jquery.fancybox-buttons.css?v=1.0.5')}}" type="text/css" media="screen" />
+        <script type="text/javascript" src="{{ url_for('static', filename='source/helpers/jquery.fancybox-buttons.js?v=1.0.5')}}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='source/helpers/jquery.fancybox-media.js?v=1.0.6')}}"></script>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='source/helpers/jquery.fancybox-thumbs.css?v=1.0.7')}}" type="text/css" media="screen" />
+        <script type="text/javascript" src="{{ url_for('static', filename='source/helpers/jquery.fancybox-thumbs.js?v=1.0.7')}}"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.fancybox-media').fancybox({
+                    openEffect: 'none',
+                    closeEffect: 'none',
+                    helpers: {
+                        media: {}
+                    }
+                });
+                $(".fancybox").fancybox();
+            });
+
+        </script>
+
+        <link href="{{ url_for('static', filename='lib/jquery-modal-master/jquery.modal.min.css')}}" rel="stylesheet" type="text/css"/>
+        <script src="{{ url_for('static', filename='lib/jquery-modal-master/jquery.modal.min.js')}}" type="text/javascript"></script>
+
+        <!-- Popup form -->
+        <form action="/" method="POST" id="ss-form" class="ldT2-form-popup login_form modal" target="hidden_iframe" onsubmit="" style="display:none;">
+            <h3>Đăng ký để được tư vấn</h3>
+            <ol role="list" class="ss-question-list" style="padding-left: 0;">
+                    <div class="messenge_error" style="color: #f00; text-align:center;">
+                     {% for field in form if field.widget.input_type != 'hidden' %}
+                        {% if field.errors %}
+                        <div class='alert alert-danger'>
+                            {%for error in field.errors%}
+                                {{error}}</br>
+                            {%endfor%}
+                        </div>
+                        {%endif%}
+                    {%endfor%}
+                  </div>
+
+                    {{ form.hidden_tag() }}
+                    <div class="ss-form-question errorbox-good" role="listitem">
+                        <div dir="auto" class="ss-item ss-item-required ss-text">
+                            <div class="ss-form-entry">
+                                <label class="ss-q-item-label" for="entry_1851139443">
+                                    <div class="ss-q-title">Họ &amp; tên
+                                        <label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+                                        <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
+                                    <div class="ss-q-help ss-secondary-text" dir="auto"></div>
+                                </label>
+                                <input type="text" name="name" {%if form.data.name%} value="{{form.data.name|safe}}" {%endif%} placeholder='Họ & tên' required oninvalid="setCustomValidity('Họ & tên không chính xác!')" oninput="setCustomValidity('')"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ss-form-question errorbox-good" role="listitem">
+                        <div dir="auto" class="ss-item ss-item-required ss-text">
+                            <div class="ss-form-entry">
+                                <label class="ss-q-item-label" for="entry_474116891">
+                                    <div class="ss-q-title">Số điện thoại
+                                        <label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+                                        <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
+                                    <div class="ss-q-help ss-secondary-text" dir="auto"></div>
+                                </label>
+                                <input type="text" id="phone" name="phone" value={%if form.data.phone%} "{{form.data.phone|safe}}" {%else%} "" {%endif%} placeholder='Số điện thoại' required pattern="^[0-9]{10,12}$" oninvalid="setCustomValidity('Số điện thoại không chính xác')" oninput="setCustomValidity('')"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ss-form-question errorbox-good" role="listitem">
+                        <div dir="auto" class="ss-item ss-item-required ss-text">
+                            <div class="ss-form-entry">
+                                <label class="ss-q-item-label" for="entry_1001517641">
+                                    <div class="ss-q-title">Email
+                                        <label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+                                        <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
+                                    <div class="ss-q-help ss-secondary-text" dir="auto"></div>
+                                </label>
+                                <input type="text" name="email" value={%if form.data.email%} "{{form.data.email|safe}}" {%else%} "" {%endif%} class='insert-attr' placeholder='Địa chỉ email' required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" oninvalid="setCustomValidity('Email không chính xác!')" oninput="setCustomValidity('')"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ss-form-question errorbox-good" role="listitem">
+                        <div dir="auto" class="ss-item ss-item-required ss-paragraph-text">
+                            <div class="ss-form-entry">
+                                <label class="ss-q-item-label" for="entry_1626018955">
+                                    <div class="ss-q-title">Nội dung cần tư vấn
+                                        <label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+                                        <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
+                                    <div class="ss-q-help ss-secondary-text" dir="auto"></div>
+                                </label>
+                                <textarea name="nd_tuvan" rows="8" cols="0" class="ss-q-long" id="entry_1626018955" dir="auto" aria-label="Nội dung cần tư vấn  " aria-required="true" required oninvalid="setCustomValidity('Nội dung cần tư vấn không chính xác!')" oninput="setCustomValidity('')">{%if form.data.nd_tuvan%}{{form.data.nd_tuvan|safe}}{%endif%}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                <div class="ss-item ss-navigate ldtn-submit-wrap text-center">
+                    <input type="submit" name="submit" value="Đăng ký" class="jfk-button jfk-button-action ldtn-res-btn">
+                </div>
+            </ol>
+            <h4 class="ld2-notice"></h4>
+        </form>
+    </body>
+</html>
+
 
     <script src="//cdn.accesstrade.vn/js/tracking.js" ></script>
     <script type="text/javascript">
@@ -411,55 +505,3 @@
 
     </script>
 
-    <script>
-        $(document).ready(function(){
-                cardtype='{{form.data.cardtype|safe}}'
-                activaTab(cardtype);
-
-                $("#cardtype").change(function(){
-                    cardtype = $(this).val();
-                    activaTab(cardtype);
-                });
-
-                $('.nav-tabs li a').click(function () {
-                     var cardtype = $(this).attr("key")
-                     $("#cardtype").val(cardtype);
-                     $('#cardtype').children('option').each(function() {
-                        if ($(this).is(':selected'))
-                        {
-                            $(this).trigger('change');
-                        }
-                    });
-
-                });
-
-
-                $(".field_error").html('');
-                    {% for field in form if field.widget.input_type != 'hidden' %}
-                        {% if field.errors %}
-                            {%for error in field.errors%}
-                                $('#{{field.name}}_error').html('{{error}}');
-                            {%endfor%}
-                        {%endif%}
-                    {%endfor%}
-
-            });
-
-            function activaTab(cardtype){
-                href_tab = 'exampleTabsOne';
-                  if(cardtype=='2'){
-                    href_tab = 'exampleTabsTwo';
-                }
-                  if(cardtype=='3'){
-                    href_tab = 'exampleTabsThree';
-                }
-                  if(cardtype=='4'){
-                    href_tab = 'exampleTabsFour';
-                }
-                $('.nav-tabs a[href="#' + href_tab + '"]').tab('show');
-            };
-    </script>
-
-</body>
-
-</html>

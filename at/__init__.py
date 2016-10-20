@@ -25,8 +25,6 @@ def static_from_root():
 @app.route("/", methods=['POST', 'GET'])
 def index():
     form = BankForm()
-    slbox_address_support = select_box_by_list(ADDRESS_SUPPORT, form.address_support.data, 'address_support', 'address_support', 'form-control styled', '',
-                                        '-- Đăng ký tư vấn tại --')
 
     if request.method == 'POST':
         if form.validate_on_submit():
@@ -38,13 +36,15 @@ def index():
                     {"property":"email", "value":form.email.data},
                     {"property":"phone", "value":form.phone.data},
                     {"property":"hs_lead_status", "value":"NEW"},
-                    {"property":"address_support", "value": int(form.address_support.data)},
+                    {"property": "at_check", "value": "NEW"},
+                    {"property": "bn_check", "value": "NEW"},
+                    {"property":"nd_tuvan", "value": form.nd_tuvan.data},
                     {"property":"aff_source", "value":form.aff_source.data},
                     {"property":"aff_sid", "value":form.aff_sid.data},
                 ]
             }
 
-            url = "https://api.hubapi.com/contacts/v1/contact/?hapikey=XXXXXXXx"
+            url = "https://api.hubapi.com/contacts/v1/contact/?hapikey=7c68a0fa-4862-4b36-bdf4-a8e6dd9964b4"
             header = {'Content-Type': 'application/json'}
             print json.dumps(data)
             res = requests.post(url=url, data=json.dumps(data), headers=header)
@@ -57,16 +57,16 @@ def index():
                     else:
                         form.email.errors.append(res_json["message"])
 
-                    return render_template('index.html', form=form, slbox_address_support=slbox_address_support)
+                    return render_template('index.html', form=form)
                 else:
                     return render_template('thankyou.html')
 
             form.email.errors.append("Invalid data!")
-            return render_template('index.html', form=form, slbox_address_support=slbox_address_support)
+            return render_template('index.html', form=form)
 
         else:
-            return render_template('index.html', form=form, slbox_address_support=slbox_address_support)
+            return render_template('index.html', form=form)
 
-    return render_template('index.html', form=form, slbox_address_support=slbox_address_support)
+    return render_template('index.html', form=form)
 
 

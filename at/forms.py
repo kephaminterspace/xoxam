@@ -18,8 +18,8 @@ class BankForm(Form):
     name = TextField('Name', validators = [DataRequired(message=u'Tên không chính xác')])
     phone = TextField('Phone', validators = [DataRequired(message=u'Số điện thoại không chính xác'), Length(min=10, max=12), _check_phone_number])
     email = EmailField('Email', validators = [DataRequired(message=u'Email không chính xác'), Email(message=u'Email không chính xác')])
-    address_support = SelectField('Address support', choices=ADDRESS_SUPPORT, validators=[DataRequired(message=u'Xin vui lòng chọn địa chỉ tư vấn')], coerce=int)
-    toidongy = BooleanField("Agree", validators = [DataRequired(message=u'Bạn phải đồng ý với điều khoản của chúng tôi')])
+    nd_tuvan = TextField('Nội Dung cần tư vấn', validators = [DataRequired(message=u'Nội dung cần tư vấn không chính xác')])
+
     aff_source = HiddenField("aff_source")
     aff_sid = HiddenField("aff_sid")
     submit = SubmitField('Submit')
