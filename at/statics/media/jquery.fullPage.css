@@ -175,7 +175,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9c00', end
 .logo{position:absolute;left:0;top:0px}
 .logo img{transition:all 500ms ease-in-out 0s;height:59px;margin-top:0}
 .menu{position:absolute;left:200px;transition:all 500ms ease-in-out 0s;max-width:800px}
-.menu a{color:#6d3800;transition:all 500ms ease-in-out 0s;text-transform:uppercase;font-weight:400;line-height:20px;padding:19px 30px;text-align:center;font-weight: 700;}
+.menu a{color:#6d3800;transition:all 500ms ease-in-out 0s;text-transform:uppercase;font-weight:400;line-height:20px;padding:19px 25px;text-align:center;font-weight: 700;}
 .hotline{width:148px;transition:all 500ms ease-in-out 0s;position:absolute;right:10px;line-height:68px;color:#fff;font-size:16px;font-weight:400;top:8px}
 .dangky-top{width:150px;height:37px;text-align:center;line-height:37px;font-weight:400;position:absolute;right:0;top:16px;border-radius:6px;text-transform:uppercase;color:#fff;transition:all 500ms ease-in-out 0s;font-size:15px;border:1px solid #fff}
 .dangky-top:hover{border:1px solid #ff9c00;}
