@@ -30,17 +30,17 @@ def index():
         if form.validate_on_submit():
             data = {
                 "properties": [
-                    {"property":"identifier", "value":'xoaxam_'+str(uuid.uuid4())},
-                    {"property":"firstname", "value":form.name.data},
-                    {"property":"lastname", "value":""},
-                    {"property":"email", "value":form.email.data},
-                    {"property":"phone", "value":form.phone.data},
-                    {"property":"hs_lead_status", "value":"NEW"},
+                    {"property": "identifier", "value":'xoaxam_'+str(uuid.uuid4())},
+                    {"property": "firstname", "value":form.name.data},
+                    {"property": "lastname", "value":""},
+                    {"property": "email", "value":form.email.data},
+                    {"property": "phone", "value":form.phone.data},
+                    {"property": "hs_lead_status", "value":"NEW"},
                     {"property": "at_check", "value": "NEW_STATUS"},
                     {"property": "bn_check", "value": "NEW_STATUS"},
-                    {"property":"nd_tuvan", "value": form.nd_tuvan.data},
-                    {"property":"aff_source", "value":form.aff_source.data},
-                    {"property":"aff_sid", "value":form.aff_sid.data},
+                    {"property": "nd_tuvan", "value": form.nd_tuvan.data},
+                    {"property": "aff_source", "value":form.aff_source.data},
+                    {"property": "aff_sid", "value":form.aff_sid.data},
                 ]
             }
 
