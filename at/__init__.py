@@ -35,6 +35,7 @@ def index():
                     {"property": "lastname", "value":""},
                     {"property": "email", "value":form.email.data},
                     {"property": "phone", "value":form.phone.data},
+                    {"property": "address", "value": form.address.data},
                     {"property": "hs_lead_status", "value":"NEW"},
                     {"property": "at_check", "value": "NEW_STATUS"},
                     {"property": "bn_check", "value": "NEW_STATUS"},
