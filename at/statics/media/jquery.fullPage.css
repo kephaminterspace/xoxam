@@ -306,7 +306,6 @@ a#login_pop:hover,a#join_pop:hover{border-color:#eee}
 .danhmuc li a{color:#713711;font-size:14px;font-weight:400;display:block;padding:5px 2px;border-top:1px solid #bd825b}
 .ftadbox{ display:none;}
 .ftad{ display:table;position:fixed;bottom:0;width:100%;z-index:999;border-top:2px solid #fff;}
-.ftad > div{float:left; width:50%;}
 .ftad > div:nth-child(1){background:#713711}
 .ftad > div:nth-child(2){background:#F7941E}
 .ftad > div a{ display:block;font-family:'Roboto Condensed'; font-size:20px;  text-transform:uppercase; text-align: center; padding:10px}
