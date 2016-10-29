@@ -496,6 +496,11 @@
                 {%endfor%}
 
             });
+        $(document).ready(function(){
+                $('input[name=email]').keyup(function() {
+                      this.value = this.value.toLowerCase();
+                    });
+              });
     </script>
     </body>
 </html>
