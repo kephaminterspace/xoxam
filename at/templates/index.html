@@ -1,7 +1,4 @@
-
-
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
     <head>
@@ -42,8 +39,6 @@
             <section class="page1 section" id="section1">
                 <div class="page_container">
                     <div id="dangky"></div>
-                    <!--<div class="headline"><img src="media/images/headline.png" alt=""><span><img src="media/images/headline-mb.png"></span></div>-->
-                    <!--<div class="subhl"><img src="media/images/sub-headline.png"></div>-->
                     <div class="ldxx-slideMobile">
                     <img src="{{ url_for('static', filename='media/images/slide649-768.png')}}" alt=""/>
                     </div>
@@ -489,7 +484,8 @@
                 {% for field in form if field.widget.input_type != 'hidden' %}
                     {% if field.errors %}
                         if($check_error==0){
-                            jQuery('#trigger_click').trigger('click');
+                            $('#ss-form').modal('show');
+                            <!--jQuery('#trigger_click').trigger('click');-->
                         }
                        $check_error = $check_error + 1;
                     {%endif%}
@@ -504,18 +500,3 @@
     </script>
     </body>
 </html>
-
- <!--{"properties": [-->
-     <!--{"property": "identifier", "value": "1e1633cb-cf6e-43f4-ad01-3c813c8b85f5"},-->
-     <!--{"property": "firstname", "value": "Pham van Kien"},-->
-     <!--{"property": "lastname", "value": ""},-->
-     <!--{"property": "email", "value": "xombinhyen09@gmail.com"},-->
-     <!--{"property": "phone", "value": "01635243892"},-->
-     <!--{"property": "hs_lead_status", "value": "NEW"},-->
-     <!--{"property": "at_check", "value": "NEW_STATUS"},-->
-     <!--{"property": "bn_check", "value": "NEW_STATUS"},-->
-     <!--{"property": "nd_tuvan", "value": "asdsad"},-->
-     <!--{"property": "aff_source", "value": ""},-->
-     <!--{"property": "aff_sid", "value": ""}-->
- <!--]}-->
-
