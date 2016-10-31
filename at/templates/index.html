@@ -351,7 +351,7 @@
         <script src="{{ url_for('static', filename='lib_xx/jquery-modal-master/jquery.modal.min.js')}}" type="text/javascript"></script>
 
         <!-- Popup form -->
-        <form action="/" method="POST" id="ss-form" class="ldT2-form-popup login_form modal" target="hidden_iframe" onsubmit="" style="display:none;">
+        <form action="/" method="POST" id="ss-form" class="ldT2-form-popup login_form modal" style="display:none;">
             <h3>Đăng ký để được tư vấn</h3>
             <ol role="list" class="ss-question-list" style="padding-left: 0;">
                     <div class="messenge_error" style="color: #f00; text-align:center;">
@@ -485,7 +485,6 @@
                     {% if field.errors %}
                         if($check_error==0){
                             $('#ss-form').modal('show');
-                            <!--jQuery('#trigger_click').trigger('click');-->
                         }
                        $check_error = $check_error + 1;
                     {%endif%}
